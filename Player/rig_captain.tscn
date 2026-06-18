@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bmmuqh16rtr11"]
+
+[ext_resource type="PackedScene" uid="uid://cyp0fqjcaytl1" path="res://Player/Characters_Captain_Barbarossa.gltf" id="1_bnnvl"]
+
+[node name="Rig_Captain" type="Node3D" unique_id=1536003809]
+
+[node name="Characters_Captain_Barbarossa" parent="." unique_id=1121978726 instance=ExtResource("1_bnnvl")]
+
+[editable path="Characters_Captain_Barbarossa"]
