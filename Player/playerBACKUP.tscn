@@ -1,16 +1,16 @@
-[gd_scene format=3 uid="uid://bljnuu6eynbrr"]
+[gd_scene format=3 uid="uid://4lgy0khffufw"]
 
-[ext_resource type="Script" uid="uid://hk1ok3hj5smm" path="res://Player/player.gd" id="1_l8h54"]
-[ext_resource type="Script" uid="uid://df7ewmd44qyik" path="res://Player/smooth_camera_arm.gd" id="2_4ntmi"]
-[ext_resource type="PackedScene" uid="uid://d362gflv0tuar" path="res://Player/health_component.tscn" id="2_k53q1"]
-[ext_resource type="Script" uid="uid://cviblmldvm1j3" path="res://Resources/CharacterStats.gd" id="2_od3ui"]
-[ext_resource type="PackedScene" uid="uid://kraq3721vy3g" path="res://Player/rig.tscn" id="3_btcbx"]
-[ext_resource type="PackedScene" uid="uid://dj6ij8eq2hakp" path="res://Player/dash.tscn" id="3_vtle1"]
-[ext_resource type="Script" uid="uid://ydeotekpxk2q" path="res://Player/attack_cast.gd" id="4_gwnis"]
-[ext_resource type="PackedScene" uid="uid://k1t1bj5upp6r" path="res://Player/area_attack.tscn" id="6_fhl08"]
+[ext_resource type="Script" uid="uid://hk1ok3hj5smm" path="res://Player/player.gd" id="1_t2201"]
+[ext_resource type="Script" uid="uid://cviblmldvm1j3" path="res://Resources/CharacterStats.gd" id="2_4rdb8"]
+[ext_resource type="PackedScene" uid="uid://d362gflv0tuar" path="res://Player/health_component.tscn" id="3_4r632"]
+[ext_resource type="Script" uid="uid://df7ewmd44qyik" path="res://Player/smooth_camera_arm.gd" id="4_l5u3r"]
+[ext_resource type="PackedScene" uid="uid://kraq3721vy3g" path="res://Player/rig.tscn" id="5_dl2y4"]
+[ext_resource type="Script" uid="uid://ydeotekpxk2q" path="res://Player/attack_cast.gd" id="6_hpq52"]
+[ext_resource type="PackedScene" uid="uid://k1t1bj5upp6r" path="res://Player/area_attack.tscn" id="7_ui43f"]
+[ext_resource type="PackedScene" uid="uid://dj6ij8eq2hakp" path="res://Player/dash.tscn" id="8_ghemv"]
 
 [sub_resource type="Resource" id="Resource_00tjw"]
-script = ExtResource("2_od3ui")
+script = ExtResource("2_4rdb8")
 metadata/_custom_type_script = "uid://cviblmldvm1j3"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hvfyp"]
@@ -19,10 +19,10 @@ metadata/_custom_type_script = "uid://cviblmldvm1j3"
 
 [node name="Player" type="CharacterBody3D" unique_id=313178323 groups=["Player"]]
 collision_layer = 5
-script = ExtResource("1_l8h54")
+script = ExtResource("1_t2201")
 stats = SubResource("Resource_00tjw")
 
-[node name="HealthComponent" parent="." unique_id=1761236766 node_paths=PackedStringArray("body") instance=ExtResource("2_k53q1")]
+[node name="HealthComponent" parent="." unique_id=1761236766 node_paths=PackedStringArray("body") instance=ExtResource("3_4r632")]
 body = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=944180999]
@@ -32,7 +32,7 @@ shape = SubResource("CapsuleShape3D_hvfyp")
 transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 0, 0)
 shape = SubResource("SeparationRayShape3D_l8h54")
 spring_length = 4.0
-script = ExtResource("2_4ntmi")
+script = ExtResource("4_l5u3r")
 target = NodePath("../HorizontalPivot/VerticalPivot")
 
 [node name="Camera3D" type="Camera3D" parent="SmoothCameraArm" unique_id=1158876052]
@@ -45,7 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
 [node name="RigPivot" type="Node3D" parent="." unique_id=1958423744]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
-[node name="Rig" parent="RigPivot" unique_id=154100409 instance=ExtResource("3_btcbx")]
+[node name="Rig" parent="RigPivot" unique_id=154100409 instance=ExtResource("5_dl2y4")]
 animation_speed = 8.0
 
 [node name="Skeleton3D" parent="RigPivot/Rig/CharacterRig/GameRig" parent_id_path=PackedInt32Array(154100409, 727980382, 1885892760) index="0" unique_id=577919517]
@@ -117,13 +117,13 @@ unique_name_in_owner = true
 transform = Transform3D(7.163648e-11, 4.388461e-08, 1.0000002, 0.9961948, 0.087155886, -3.8961696e-09, -0.08715592, 0.9961943, -4.37114e-08, -0.03, 0.08, 0)
 target_position = Vector3(0, 1, 0)
 collision_mask = 8
-script = ExtResource("4_gwnis")
+script = ExtResource("6_hpq52")
 
-[node name="AreaAttack" parent="RigPivot" unique_id=485518051 instance=ExtResource("6_fhl08")]
+[node name="AreaAttack" parent="RigPivot" unique_id=485518051 instance=ExtResource("7_ui43f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
 collision_mask = 8
 
-[node name="Dash" parent="RigPivot" unique_id=511730870 node_paths=PackedStringArray("player") instance=ExtResource("3_vtle1")]
+[node name="Dash" parent="RigPivot" unique_id=511730870 node_paths=PackedStringArray("player") instance=ExtResource("8_ghemv")]
 player = NodePath("../..")
 
 [connection signal="defeat" from="HealthComponent" to="." method="_on_health_component_defeat"]
