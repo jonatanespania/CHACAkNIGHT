@@ -17,7 +17,6 @@ var current_health: float:
 func update_max_health(max_hp_in: float) -> void:
 	max_health = max_hp_in
 	current_health = max_health
-	print('HP:', max_health, '/', current_health)
 	
 func take_damage(damage_in: float, is_critical: bool) -> void:
 	var damage = damage_in
@@ -27,3 +26,6 @@ func take_damage(damage_in: float, is_critical: bool) -> void:
 	else:
 		VfxManager.spawn_damage_number(damage, Color.WHITE, body.global_position)
 	current_health -= damage
+
+func get_health_string() -> String:
+	return "%d / %d" % [current_health, max_health]
